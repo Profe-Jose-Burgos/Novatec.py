@@ -1,9 +1,8 @@
 # Novatec.py
-integrantes
+integrantes:
 
-- Stheisy Pimentel
-- Jonatan Santos
--  Rodrigo Cañizales
--  Genesis Gantes
--  Jháen Arosemena
-- 
+Stheisy Pimentel
+Jonatan Santos
+Rodrigo Cañizales
+Genesis Gantes
+Jháen Arosemena
