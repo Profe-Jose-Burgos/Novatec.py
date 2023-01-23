@@ -1,7 +1,8 @@
 # Novatec.py
 integrantes:
-- Stheisy Pimentel
-- Jonatan Santos
+
+-Stheisy Pimentel
+-Jonatan Santos
 -Rodrigo Cañizales
 -Genesis Gantes
 -Jháen Arosemena
