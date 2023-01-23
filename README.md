@@ -2,7 +2,7 @@
 integrantes
 
 - Stheisy Pimentel
-- Joanatan  Santos
+-Jonatan Sanrtos
 -  Rodrigo Cañizales
 -  Genesis Gantes
 -  Jháen Arosemena
