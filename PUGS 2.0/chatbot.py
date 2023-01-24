@@ -76,3 +76,12 @@ def start_chatbot(): #esto creo que no es necesarioo
     
 from intents_reference import start_intents
 from model_builder import start_model
+
+if __name__ == '__main__':
+    while True:
+        sentence = input("You: ")
+        if sentence == "quit":
+            break
+
+        resp = chatbot_response(sentence)
+        print(resp)

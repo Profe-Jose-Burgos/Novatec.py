@@ -14,8 +14,9 @@ def instalar_librerias():
     pip.main(["install", "tensorflow-estimator==2.11.0"])
     pip.main(["install", "tensorflow-io-gcs-filesystem==0.29.0"])
     pip.main(["install", "selenium==4.7.2"])
-    
-    
+    pip.main(["install", "Flask"])
+    #pip.main(["install", "Flask torch torchvision nltk"])
+
     import nltk
     nltk.download('punkt')
     nltk.download('wordnet')
