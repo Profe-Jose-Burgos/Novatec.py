@@ -39,7 +39,7 @@ header{
     text-decoration: underline;
 }
 
-/*--------------------------COMENZAR DESDE AQUI------------------------*/
+
 main{
     padding: 4em 0;
     background-color: #e5e5f7;
@@ -55,6 +55,14 @@ main{
     border-radius: 10px;
     box-shadow: 10px 10px  30px #000000;
     cursor: pointer;
+
+    background-image: linear-gradient(#4626b2, #4626b2), linear-gradient(
+        white, white
+    );
+    background-size: 0 5px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all .2s ease-out;
 }
 
 .box-main-title:hover{
@@ -75,7 +83,7 @@ main{
     border-radius: 20px;
 }
 
-/*parrafos texto infromacin*/
+
 .information-text{
     margin: 20px 0 0 5em;
     padding: 20px;
@@ -84,6 +92,19 @@ main{
     border-radius: 10px;
     box-shadow: 10px 10px 30px #000000;
     cursor: pointer;
+
+    background-image: linear-gradient(#4626b2, #4626b2), linear-gradient(
+        white, white
+    );
+    background-size: 0 5px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all .2s ease-out;
+
+}
+
+.information-text:hover{
+    background-size: 100% 5px, auto;
 }
 
 .information-text{
@@ -117,9 +138,10 @@ main{
     --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     --primary: #581B98;
 }
+
 .chatbox {
     position: absolute;
-    top: 86%;
+    top: 60%;
     right: 30px;
 }
 
