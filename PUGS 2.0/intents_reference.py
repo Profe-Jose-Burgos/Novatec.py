@@ -81,7 +81,7 @@ def start_intents():
                                "ofrecen servicios de urgencia?",
                                "que hacen?"
                               ],
-                   "respuestas":["Ofrecemos los siguientes servicios:\n-Medicina Preventiva\n-Medicina General\n -Medicina Especializada\n -Cirugia General\n -Cirugias Especializadas\n -Acupuntura\n -Cardiogramas\n -Ultrasonidos\n -Electrocardiograma\n -Rayos X\n -Endoscopia\n -Laboratorios\n -Urgencia"],
+                   "respuestas":["Ofrecemos los siguientes servicios:-Medicina Preventiva -Medicina General -Medicina Especializada -Cirugia General -Cirugias Especializadas -Acupuntura -Cardiogramas -Ultrasonidos -Electrocardiograma -Rayos X -Endoscopia -Laboratorios -Urgencia"],
                    "contexto":[""]         
                   },
                   
@@ -129,9 +129,9 @@ def start_intents():
                   
                   {"etiqueta":"sinrespuesta",
                    "patrones":[""],
-                   "respuestas":["no se ha detectado respuesta",
-                                 "ouh, no comprendo lo que me quieres decir humano :(",
-                                 "lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos"],
+                   "respuestas":["no se ha detectado respuesta\n Puedes hacerme preguntas como:-Horario -Servicios -Ubicacion -Contacto",
+                                 "ouh, no comprendo lo que me quieres decir humano :(\n Puedes hacerme preguntas como: -Horario -Servicios -Ubicacion -Contacto",
+                                 "lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos\n Puedes hacerme preguntas como:-Horario -Servicios -Ubicacion -Contacto"],
                    "contexto":[""]
                   }
               ]
