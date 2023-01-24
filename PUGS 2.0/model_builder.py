@@ -1,7 +1,7 @@
 import pickle
 import nltk
 import json
-import numpy
+import numpy as np
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Conv2D, Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import SGD
@@ -21,15 +21,15 @@ def tokenizer():
     intenciones = json.loads(archivo_json)
     
     for intencion in intenciones["intenciones"]:
-    for patron in intencion["patrones"]:
-        w_token = nltk.word_tokenize(patron)
-        palabras.extend(w_token)
-        
-        
-        documentos.append((w_token, intencion["etiqueta"]))
-        
-        if intencion["etiqueta"] not in categorias:
-            categorias.append(intencion["etiqueta"])
+        for patron in intencion["patrones"]:
+            w_token = nltk.word_tokenize(patron)
+            palabras.extend(w_token)
+            
+            
+            documentos.append((w_token, intencion["etiqueta"]))
+            
+            if intencion["etiqueta"] not in categorias:
+                categorias.append(intencion["etiqueta"])
             
     return palabras, categorias, documentos
 
@@ -42,6 +42,8 @@ def lematizer(palabras, categorias, documentos):
 
     pickle.dump(palabras, open("palabras.pkl", "wb"))
     pickle.dump(categorias, open("categorias.pkl", "wb"))
+
+    return palabras2
     
     
 
@@ -54,8 +56,8 @@ def training(palabras, categorias, documentos):
         patrones_pal=doc[0]
         patrones_pal=[lematizador.stem(palabra.lower()) for palabra in patrones_pal if palabra not in palabras_ignoradas ]
     
-        for palabra in palabras:
-            contenedor.append(1) if palabra in patrones_pal else contenedor.append(0)
+        for word in palabras:
+            contenedor.append(1) if word in patrones_pal else contenedor.append(0)
         
         output_row=list(output_empty)
         output_row[categorias.index(doc[1])] = 1
@@ -101,7 +103,7 @@ def start_model():
 
 from intents_reference import start_intents
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     start_intents()
     start_model()
     
