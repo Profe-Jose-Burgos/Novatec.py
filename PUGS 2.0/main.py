@@ -13,32 +13,30 @@ driver = webdriver
 
 
 def crear_driver_session():
-    
+
     with open(filepath) as fp:
         for cnt, line in enumerate(fp):
             if cnt == 0:
                 executor_url = line
             if cnt == 1:
                 session_id = line
-                
-                
 
     def new_command_execute(self, command, params=None):
-        if command == "NewSession":
+        if command == "newSession":
+            
             return {'success': 0, 'value': None, 'sessionId': session_id}
         else:
             return org_command_execute(self, command, params)
-    
-    
+                
     org_command_execute = RemoteWebDriver.execute
+
     RemoteWebDriver.execute = new_command_execute
-    
-    new_driver = webdriver.Remote(command_executor = executor_url, desired_capabilities = {})
+
+    new_driver = webdriver.Remote(command_executor=executor_url, desired_capabilities={})
     new_driver.session_id = session_id
-    
-    
+
     RemoteWebDriver.execute = org_command_execute
-    
+
     return new_driver
 
 
@@ -69,35 +67,38 @@ def buscar_chats():
     sleep(2)
     
     print(len(driver.find_elements(By.CLASS_NAME,"_1RAKT")))
-    
-    if len(driver.find_elements(By.CLASS_NAME,"zaKsw")) == 0:
+    # si la longitud es 0 es porque tengo chat abierto, si es dif de 0 es porque  no hay chat abierto
+    if len(driver.find_elements(By.CLASS_NAME,"zaKsw")) == 0: #cuando ninguno esta abierto (ventana de la derecha)
         
         print("CHAT ABIERTO")
         message = identificar_mensaje()
-        
+                                
         if message != None:
             return True
+    else:
         
-        else:
-            chats = driver.find_elements(By.CLASS_NAME,"_1Oe6M")
+        chats = driver.find_elements(By.CLASS_NAME,"_1Oe6M") # el cuadro del primer chat a la izquierda
+                
+        #print("len chats: ",len(chats))
+        for chat in chats:
+            print("DETECTANDO chats")
+            print("mensajes sin leer: ",len(chats))
+
+
+            porresponder = check_mensajes(chat) # Verificar si existen mensajes por leer
             
-            for chat in chats:
-                print("DETECTANDO CHATS")
-                print("mensajes sin leer:", len(chats))
+            # Condicion para entrar en cada conversacion (Solo entra si existen mensajes sin leer)
+            if porresponder:
                 
+                # Si existen mensajes sin responder debemos dar click sobre ese chat.            
+                chat.click()  # Se da click sobre la conversacion.
+                sleep(2)
+                return True
+            else:
+                print("CHATS ATENDIDOS")
+                continue
                 
-                por_responder = check_mensajes(chat)
-                
-                if por_responder:
-                    
-                    chat.click()
-                    sleep(2)
-                    return True
-                
-                else:
-                    print("CHATS ATENDIDOS")
-                    continue
-                    
+
     return False
 
 
@@ -117,7 +118,7 @@ def identificar_mensaje():
     
     element_message = element_box_message[posicion].find_elements(By.CLASS_NAME, "_21Ahp")
     
-    message = element_message[0].text_lower().strip()
+    message = element_message[0].text.lower().strip()
     print("MENSAJE RECIBIDO:", message)
     
     return normalizar(message)
@@ -138,7 +139,7 @@ def procesar_mensaje(message: str):
     response = preparar_respuesta(message)
     print("RESPONSE:", response)
     
-    chatbotx.send_keys(response, Keys.ENTER)
+    chatbox.send_keys(response, Keys.ENTER)
     sleep(2)
     webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
     
@@ -147,17 +148,24 @@ def procesar_mensaje(message: str):
 def whatsapp_bot_init():
     global driver
     driver = crear_driver_session()
+
+    esperando=1
     
-    
-    esperando = 1
-    
-    while esperando == 1:
-        esperando = len(driver.find_elements(By.CLASS_NAME,"_1meIt"))
+    while esperando== 1:
+        esperando=len(driver.find_elements(By.CLASS_NAME,"_1meIt"))
         sleep(5)
-        continue
+        print("login_sucess: ", esperando)
+        
+    while True:
+        if not buscar_chats(): # busca si hay chats, y si tienen mensajes sin leer
+            sleep(5)
+
+            # aqui debo hacer un control para que retroceda atras donde no hay chats abiertos
+            # y lo vamos a hacer regrescando la pagina
+            continue
         
         message = identificar_mensaje()
-        
+
         if message == None:
             continue
         else:

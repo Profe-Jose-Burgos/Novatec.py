@@ -7,9 +7,9 @@ from tensorflow.keras.models import load_model
 lematizador = SnowballStemmer('spanish')
 
 modelo = load_model("modelo_chatbot_pugs.h5")
-intentos = json.loads(open("intenciones.json").read())
+intenciones = json.loads(open("intenciones.json").read())
 palabras = pickle.load(open("palabras.pkl","rb"))
-classes = pickle.load(open("categorias.pkl","rb"))
+categorias = pickle.load(open("categorias.pkl","rb"))
 
 
 def limpiar_conversacion(sentence):
