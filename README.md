@@ -5,4 +5,4 @@ integrantes:
 -Jonatan Santos
 -Rodrigo Cañizales
 -Genesis Gantes
--Jháen Arosemena
+-Jáen Arosemena
