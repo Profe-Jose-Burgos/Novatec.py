@@ -21,7 +21,7 @@ def start_intents():
                                "saludos",
                                "como estas?"
                               ],
-                   "respuestas":["GUAU GUAU!, me llamo PUGS! su sistema de ayuda para atencion en sus preguntas o dudas sobre el centro de    atencion para su(s) mascota(s). En que te puedo ayudar?"],
+                   "respuestas":["GUAU GUAU! me llamo PUGS! su sistema de ayuda para atencion en sus preguntas o dudas sobre el centro de    atencion para su(s) mascota(s). En que te puedo ayudar?"],
                    "contexto":[""]
                 },
                   
