@@ -6,10 +6,10 @@ from tensorflow.keras.models import load_model
 
 lematizador = SnowballStemmer('spanish')
 
-modelo = load_model("Novatec.py/PUGS 2.0/modelo_chatbot_pugs.h5")
-intenciones = json.loads(open("Novatec.py/PUGS 2.0/intenciones.json").read())
-palabras = pickle.load(open("Novatec.py/PUGS 2.0/palabras.pkl","rb"))
-categorias = pickle.load(open("Novatec.py/PUGS 2.0/categorias.pkl","rb"))
+modelo = load_model("modelo_chatbot_pugs.h5")
+intenciones = json.loads(open("intenciones.json").read())
+palabras = pickle.load(open("palabras.pkl","rb"))
+categorias = pickle.load(open("categorias.pkl","rb"))
 
 
 def limpiar_conversacion(sentence):
@@ -77,6 +77,7 @@ def start_chatbot(): #esto creo que no es necesarioo
 from intents_reference import start_intents
 from model_builder import start_model
 
+
 if __name__ == '__main__':
     while True:
         sentence = input("You: ")
@@ -85,3 +86,4 @@ if __name__ == '__main__':
 
         resp = chatbot_response(sentence)
         print(resp)
+

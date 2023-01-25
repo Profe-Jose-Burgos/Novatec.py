@@ -8,14 +8,16 @@ def instalar_librerias():
     pip.main(["install", "keras==2.11.0"])
     pip.main(["install", "nltk==3.7"])
     pip.main(["install", "numpy==1.21.5"])
-    pip.main(["install", "keras==2.11.0"])
     pip.main(["install", "tensorboard==2.11.2"])
     pip.main(["install", "tensorflow==2.11.2"])
     pip.main(["install", "tensorflow-estimator==2.11.0"])
     pip.main(["install", "tensorflow-io-gcs-filesystem==0.29.0"])
     pip.main(["install", "selenium==4.7.2"])
-    pip.main(["install", "Flask"])
-    #pip.main(["install", "Flask torch torchvision nltk"])
+    pip.main(["install", "Flask==2.2.2"])
+    pip.main(["install", "torch"])
+    pip.main(["install", "flask-cors"])
+    #pip.main["install", "chatbot"]
+    #pip.main(["install", "Flask torchvision nltk"])
 
     import nltk
     nltk.download('punkt')

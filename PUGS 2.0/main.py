@@ -67,7 +67,7 @@ def buscar_chats():
     sleep(2)
     
     print(len(driver.find_elements(By.CLASS_NAME,"_1RAKT")))
-    # si la longitud es 0 es porque tengo chat abierto, si es dif de 0 es porque  no hay chat abierto
+    # si la longitud es 0 es porque tengo chat abierto, si es dif de 0 es porque no hay chat abierto
     if len(driver.find_elements(By.CLASS_NAME,"zaKsw")) == 0: #cuando ninguno esta abierto (ventana de la derecha)
         
         print("CHAT ABIERTO")
