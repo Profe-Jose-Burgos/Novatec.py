@@ -15,7 +15,8 @@ def instalar_librerias():
     pip.main(["install", "tensorflow-io-gcs-filesystem==0.29.0"])
     pip.main(["install", "selenium==4.7.2"])
     pip.main(["install", "Flask"])
-    #pip.main(["install", "Flask torch torchvision nltk"])
+    pip.main(["install", "torch"])
+    pip.main(["install", "flask-cors"])
 
     import nltk
     nltk.download('punkt')
