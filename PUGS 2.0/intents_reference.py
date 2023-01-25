@@ -126,6 +126,29 @@ def start_intents():
                    "respuestas":["Puedes contactarte directamente con nosotros al Whatsapp: +507 62840188 o a nuestro numero telefónico: 391-8357 / 391-8358\n Tambien nos puedes seguir en nuestro Instagram para no perderte de ninguna promocion!!: https://www.instagram.com/clinicavetpatasyhuellas/?hl=es"],
                    "contexto":[""]         
                   },
+
+                  {"etiqueta":"horario_cita",
+                   "patrones":["cita",
+                               "agendar",
+                               "quiero agendar una cita",
+                               "quisiera programar una cita",
+                               "como puedo agendar una cita?",
+                               "tramite de cita"
+                              ],
+                   "respuestas":["Tenemos los siguientes horarios disponibles para agendar su cita(escriba el codigo de la cita que desee) -H1. Lunes 8:00 a.m -H2. Marte 10:00 a.m -H3. Miercoles 8:00 a.m -H4. Jueves 10:00 a.m -H5. Viernes 8:00 a.m"],            
+                   "contexto":[""]
+                },
+                  
+                  {"etiqueta":"agendar_cita",
+                   "patrones":["H1",
+                               "H2",
+                               "H3",
+                               "H4",
+                               "H5"
+                              ],
+                   "respuestas":["Gracias por confiar en nosotros. Tienes alguna otra duda?"],
+                   "contexto":[""]
+                },
                   
                   {"etiqueta":"sinrespuesta",
                    "patrones":[""],

@@ -12,6 +12,33 @@ palabras = pickle.load(open("palabras.pkl","rb"))
 categorias = pickle.load(open("categorias.pkl","rb"))
 
 
+def expresion_regular():
+    import re
+    val = True
+    
+    while val == True:
+        print("Perfecto! Ingrese su nombre y numero de celular con el siguiente formato:(nombre xxxx-xxxx)")
+        text = input()
+        regex_nombre = u'\w+[a-z]'
+        regex_numero = u'\d\d\d\d\-\d\d\d\d'
+        res_nom = re.findall(regex_nombre, text)
+        res_cel = re.findall(regex_numero, text)
+
+        if len(res_nom) == 0:
+            print("Uy, parece no ingresaste tu nombre :( vuelve a intentarlo!")
+            val = True
+
+        elif len(res_cel) == 0:
+            print("Uy, parece no ingresaste tu numero de celular :( vuelve a intentarlo!")
+            val = True
+
+        else:
+
+            r=(print("Su cita ha sido correctamente agendada", res_nom[0], "\nLo estaremos llamando al número",res_cel[0], "para recordarle su cita!"))
+            val = False
+    return r
+
+
 def limpiar_conversacion(sentence):
     sentence_words=nltk.word_tokenize(sentence)
     sentence_words=sentence_words=[lematizador.stem(palabras.lower()) for palabras in sentence_words] 
@@ -50,8 +77,11 @@ def get_response(ints,intenciones_json):
     tag= ints[0]["intent"]
     list_of_intents=intenciones_json["intenciones"] 
     
-    for i  in list_of_intents: 
-        if (i["etiqueta"]==tag):
+    for i  in list_of_intents:
+        if (i["etiqueta"]==tag and tag == "agendar_cita"):
+            result= expresion_regular()
+            break
+        elif (i["etiqueta"]==tag):
             result= random.choice(i["respuestas"]) 
             break
     return result
