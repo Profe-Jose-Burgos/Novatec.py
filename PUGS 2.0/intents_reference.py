@@ -135,7 +135,7 @@ def start_intents():
                                "como puedo agendar una cita?",
                                "tramite de cita"
                               ],
-                   "respuestas":["Tenemos los siguientes horarios disponibles para agendar su cita(escriba el codigo de la cita que desee) -H1. Lunes 8:00 a.m -H2. Marte 10:00 a.m -H3. Miercoles 8:00 a.m -H4. Jueves 10:00 a.m -H5. Viernes 8:00 a.m"],            
+                   "respuestas":["Tenemos los siguientes horarios disponibles para agendar su cita (escriba el codigo de la cita seguido de su nombre y numero de celular: ejem(H3 Luis Samaniego 6590-9090)) -H1. Lunes 8:00 a.m -H2. Marte 10:00 a.m -H3. Miercoles 8:00 a.m -H4. Jueves 10:00 a.m -H5. Viernes 8:00 a.m"],          
                    "contexto":[""]
                 },
                   

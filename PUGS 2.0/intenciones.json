@@ -151,6 +151,39 @@
             ]
         },
         {
+            "etiqueta": "horario_cita",
+            "patrones": [
+                "cita",
+                "agendar",
+                "quiero agendar una cita",
+                "quisiera programar una cita",
+                "como puedo agendar una cita?",
+                "tramite de cita"
+            ],
+            "respuestas": [
+                "Tenemos los siguientes horarios disponibles para agendar su cita (escriba el codigo de la cita seguido de su nombre y numero de celular: ejem(H3 Luis Samaniego 6590-9090)) -H1. Lunes 8:00 a.m -H2. Marte 10:00 a.m -H3. Miercoles 8:00 a.m -H4. Jueves 10:00 a.m -H5. Viernes 8:00 a.m"
+            ],
+            "contexto": [
+                ""
+            ]
+        },
+        {
+            "etiqueta": "agendar_cita",
+            "patrones": [
+                "H1",
+                "H2",
+                "H3",
+                "H4",
+                "H5"
+            ],
+            "respuestas": [
+                "Gracias por confiar en nosotros. Tienes alguna otra duda?"
+            ],
+            "contexto": [
+                ""
+            ]
+        },
+        {
             "etiqueta": "sinrespuesta",
             "patrones": [
                 ""

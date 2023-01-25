@@ -12,13 +12,13 @@ palabras = pickle.load(open("palabras.pkl","rb"))
 categorias = pickle.load(open("categorias.pkl","rb"))
 
 
-def expresion_regular():
+def expresion_regular(text):
     import re
     val = True
     
     while val == True:
-        print("Perfecto! Ingrese su nombre y numero de celular con el siguiente formato:(nombre xxxx-xxxx)")
-        text = input()
+        #print("Perfecto! Ingrese su nombre y numero de celular con el siguiente formato:(nombre xxxx-xxxx))"
+        #text = input()
         regex_nombre = u'\w+[a-z]'
         regex_numero = u'\d\d\d\d\-\d\d\d\d'
         res_nom = re.findall(regex_nombre, text)
@@ -34,7 +34,7 @@ def expresion_regular():
 
         else:
 
-            r=(print("Su cita ha sido correctamente agendada", res_nom[0], "\nLo estaremos llamando al número",res_cel[0], "para recordarle su cita!"))
+            r= str("Su cita ha sido correctamente agendada\t" +res_nom[0])
             val = False
     return r
 
@@ -73,13 +73,13 @@ def predict_class(sentence,model):
 
 
 
-def get_response(ints,intenciones_json):
+def get_response(ints,intenciones_json, texto_us):
     tag= ints[0]["intent"]
     list_of_intents=intenciones_json["intenciones"] 
     
     for i  in list_of_intents:
         if (i["etiqueta"]==tag and tag == "agendar_cita"):
-            result= expresion_regular()
+            result= expresion_regular(texto_us)
             break
         elif (i["etiqueta"]==tag):
             result= random.choice(i["respuestas"]) 
@@ -88,7 +88,7 @@ def get_response(ints,intenciones_json):
 
 def chatbot_response(text): 
     ints=predict_class(text,modelo) 
-    res=get_response(ints,intenciones)
+    res=get_response(ints, intenciones, text)
     return res
 
 
