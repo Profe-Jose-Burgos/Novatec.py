@@ -6,37 +6,34 @@ from tensorflow.keras.models import load_model
 
 lematizador = SnowballStemmer('spanish')
 
-modelo = load_model("Novatec.py/modelo_chatbot_pugs.h5")
-intenciones = json.loads(open("Novatec.py/intenciones.json").read())
-palabras = pickle.load(open("Novatec.py/palabras.pkl","rb"))
-categorias = pickle.load(open("Novatec.py/categorias.pkl","rb"))
+modelo = load_model("modelo_chatbot_pugs.h5")
+intenciones = json.loads(open("intenciones.json").read())
+palabras = pickle.load(open("palabras.pkl","rb"))
+categorias = pickle.load(open("categorias.pkl","rb"))
 
 
-def expresion_regular(text):
-    import re
-    val = True
+def expresion_regular(data):
+    import regex
+
+    res_nom = regex.search(u'\w+[a-z]', data)
+    res_cel = regex.search(u'\d\d\d\d\-\d\d\d\d', data)
+    res_hor = regex.search(u'\w\d', data)
     
-    while val == True:
-        #print("Perfecto! Ingrese su nombre y numero de celular con el siguiente formato:(nombre xxxx-xxxx))"
-        #text = input()
-        regex_nombre = u'\w+[a-z]'
-        regex_numero = u'\d\d\d\d\-\d\d\d\d'
-        res_nom = re.findall(regex_nombre, text)
-        res_cel = re.findall(regex_numero, text)
-
-        if len(res_nom) == 0:
-            print("Uy, parece no ingresaste tu nombre :( vuelve a intentarlo!")
-            val = True
-
-        elif len(res_cel) == 0:
-            print("Uy, parece no ingresaste tu numero de celular :( vuelve a intentarlo!")
-            val = True
-
-        else:
-
-            r= str("Su cita ha sido correctamente agendada\t" +res_nom[0])
-            val = False
-    return r
+    if res_nom == None:
+        r = "Uy, parece no ingresaste tu nombre, vuelve a intentarlo!"
+        
+    elif res_cel == None:
+        r = "Uy, parece no ingresaste tu numero de celular, vuelve a intentarlo!"
+        
+    #elif res_hor = H1:
+        
+        
+    else:
+        
+        s = "Perfecto! Su cita ha sido agendada con exito ", res_nom.group(),"\n","Estaremos llamando para recordarle su cita al numero de celular: ", res_cel.group(),"\n","------RESUMEN DE LA CITA------\n Nombre: ",res_nom.group()," Dia: ",fecha,"\n"," Hora: ",hora," Celular: ",res_cel.group()
+        r = ''.join(s)
+    
+    return(r)
 
 
 def limpiar_conversacion(sentence):
@@ -73,13 +70,13 @@ def predict_class(sentence,model):
 
 
 
-def get_response(ints,intenciones_json, texto_us):
+def get_response(ints,intenciones_json, texto):
     tag= ints[0]["intent"]
     list_of_intents=intenciones_json["intenciones"] 
     
     for i  in list_of_intents:
         if (i["etiqueta"]==tag and tag == "agendar_cita"):
-            result= expresion_regular(texto_us)
+            result= expresion_regular(texto)
             break
         elif (i["etiqueta"]==tag):
             result= random.choice(i["respuestas"]) 
@@ -98,10 +95,6 @@ def bot(texto_us):
     res = chatbot_response(texto_us)
     return res
 
-
-def start_chatbot(): #esto creo que no es necesarioo
-    start_intents()
-    start_model()
     
     
 from intents_reference import start_intents

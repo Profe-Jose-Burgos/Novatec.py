@@ -161,7 +161,7 @@
                 "tramite de cita"
             ],
             "respuestas": [
-                "Tenemos los siguientes horarios disponibles para agendar su cita(escriba el codigo de la cita seguido de su nombre y numero de celular: ejm(H3 Luis Samaniego 6590-9090))\n H1. Lunes 8:00 a.m\n H2. Marte 10:00 a.m\n H3. Miercoles 8:00 a.m\n H4. Jueves 10:00 a.m\n H5. Viernes 8:00 a.m"
+                "Tenemos los siguientes horarios disponibles para agendar su cita (escriba el codigo de la cita seguido de su nombre y numero de celular: ejem(H3 Luis Samaniego 6590-9090))\n H1. Lunes 8:00 a.m\n H2. Marte 10:00 a.m\n H3. Miercoles 8:00 a.m\n H4. Jueves 10:00 a.m\n H5. Viernes 8:00 a.m"
             ],
             "contexto": [
                 ""

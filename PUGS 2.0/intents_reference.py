@@ -81,7 +81,7 @@ def start_intents():
                                "ofrecen servicios de urgencia?",
                                "que hacen?"
                               ],
-                   "respuestas":["Ofrecemos los siguientes servicios:-Medicina Preventiva -Medicina General -Medicina Especializada -Cirugia General -Cirugias Especializadas -Acupuntura -Cardiogramas -Ultrasonidos -Electrocardiograma -Rayos X -Endoscopia -Laboratorios -Urgencia"],
+                   "respuestas":["Ofrecemos los siguientes servicios:-Medicina Preventiva -Medicina General -Medicina Especializada\n -Cirugia General -Cirugias Especializadas -Acupuntura\n -Cardiogramas -Ultrasonidos -Electrocardiograma\n -Rayos X -Endoscopia -Laboratorios -Urgencia"],
                    "contexto":[""]         
                   },
                   
@@ -135,7 +135,7 @@ def start_intents():
                                "como puedo agendar una cita?",
                                "tramite de cita"
                               ],
-                   "respuestas":["Tenemos los siguientes horarios disponibles para agendar su cita (escriba el codigo de la cita seguido de su nombre y numero de celular: ejem(H3 Luis Samaniego 6590-9090)) -H1. Lunes 8:00 a.m -H2. Marte 10:00 a.m -H3. Miercoles 8:00 a.m -H4. Jueves 10:00 a.m -H5. Viernes 8:00 a.m"],          
+                   "respuestas":["Para agendar su cita, ingrese el codigo del horario que desea seguido de su nombre y numero de celular(H2 Jonatan 6523-8989)\n Tenemos los siguientes horarios disponibles para agendar su cita:\n -H1. Lunes 8:00 a.m\n -H2. Marte 10:00 a.m\n -H3. Miercoles 8:00 a.m\n -H4. Jueves 10:00 a.m\n -H5. Viernes 8:00 a.m"],          
                    "contexto":[""]
                 },
                   
@@ -146,7 +146,7 @@ def start_intents():
                                "H4",
                                "H5"
                               ],
-                   "respuestas":["Gracias por confiar en nosotros. Tienes alguna otra duda?"],
+                   "respuestas":[""],
                    "contexto":[""]
                 },
                   
