@@ -189,9 +189,9 @@
                 ""
             ],
             "respuestas": [
-                "no se ha detectado respuesta\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
-                "ouh, no comprendo lo que me quieres decir humano :(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
-                "lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas"
+                "No se ha detectado respuesta:-(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
+                "Ouh:-(, no comprendo lo que me quieres decir humano :(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
+                "Lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos :-(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas"
             ],
             "contexto": [
                 ""
