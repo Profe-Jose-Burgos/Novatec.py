@@ -18,22 +18,21 @@ def expresion_regular(data):
     res_nom = regex.search(u'\w+[a-z]', data)
     res_cel = regex.search(u'\d\d\d\d\-\d\d\d\d', data)
     res_hor = regex.search(u'\w\d', data)
-    
     if res_nom == None:
-        r = "Uy, parece no ingresaste tu nombre, vuelve a intentarlo!"
-        
+        r = "Uy, parece no ingresaste tu nombre :-( vuelve a intentarlo!"
+
     elif res_cel == None:
-        r = "Uy, parece no ingresaste tu numero de celular, vuelve a intentarlo!"
-        
-    #elif res_hor = H1:
-        
-        
+        r = "Uy, parece no ingresaste tu numero de celular :-( vuelve a intentarlo!\n Recuerda que debes colocar un guion para que sea un numero valido ;-)"
+
+    elif res_hor == None:
+        r = "Uy, parece no ingresaste el codigo del horario :-( vuelve a intentarlo!"
+    
     else:
-        
-        s = "Perfecto! Su cita ha sido agendada con exito ", res_nom.group(),"\n","Estaremos llamando para recordarle su cita al numero de celular: ", res_cel.group(),"\n","------RESUMEN DE LA CITA------\n Nombre: ",res_nom.group()," Dia: ",fecha,"\n"," Hora: ",hora," Celular: ",res_cel.group()
+        s = "Perfecto! Su cita ha sido agendada con exito ", res_nom.group(),"\n","Estaremos llamando para recordarle su cita al numero de celular: ", res_cel.group(),"\n","GUAU, tienes alguna otra consulta?"
         r = ''.join(s)
     
     return(r)
+       
 
 
 def limpiar_conversacion(sentence):
@@ -78,9 +77,19 @@ def get_response(ints,intenciones_json, texto):
         if (i["etiqueta"]==tag and tag == "agendar_cita"):
             result= expresion_regular(texto)
             break
+
+        elif (i["etiqueta"]==tag and tag == "servicios"):
+            result = i["respuestas"]
+            break
+
+        elif (i["etiqueta"]==tag and tag == "agradecimientos"):
+            result = random.choice(i["respuestas"])
+            break
+
         elif (i["etiqueta"]==tag):
             result= random.choice(i["respuestas"]) 
             break
+
     return result
 
 def chatbot_response(text): 
@@ -99,7 +108,7 @@ def bot(texto_us):
     
 from intents_reference import start_intents
 from model_builder import start_model
-
+#from main import enviar_foto, enviar_respuesta
 
 if __name__ == '__main__':
     while True:

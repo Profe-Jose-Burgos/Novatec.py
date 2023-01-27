@@ -128,20 +128,56 @@ def preparar_respuesta(message: str):
     print("PREPARANDO LA RESPUESTA")
     
     response = bot(message)
-    
-    return response
+    enviar_respuesta(response)
+    #return responses
+
+def enviar_foto(foto: str):
+    print("foto :", foto)
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div/span')).click()
+    file_image = WebDriverWait(driver, timeout= 10).until(lambda driver: driver.find_element(By.XPATH,'//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]'))
+    file_image.send_keys(foto)
+    WebDriverWait(driver, timeout= 10).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="app"]/div/div/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]')).click()
+    sleep(1)
+    webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+
+def enviar_sticker(sticker: str):
+    print("sticker :", sticker)
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[1]/button[2]')).click()
+    sleep(1)
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[1]/button[4]')).click()
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[2]/div/div[3]/div/div/div[1]/div/div[3]')).click()
+    sticker_path = '//*[@id="main"]/footer/div[2]/div/div[3]/div/div/div[2]/div[2]/div/div/div/div[{}]'.format(sticker)
+    #print("sticker_path :", sticker_path)
+    sleep(2)
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH, sticker_path)).click()
+    #Cierra
+    WebDriverWait(driver, timeout= 3).until(lambda driver: driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[1]/button[1]')).click()
+    sleep(1)
+    webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
 
 
+def enviar_respuesta(respuesta: str):
+    chatbox = driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
+    res = ''.join(respuesta)
+    if res.startswith("foto_"):
+        enviar_foto(res.replace('foto_',''))
+    elif res.startswith("sticker_"):
+        enviar_sticker(res.replace('sticker_',''))
+    else:
+        print("respuesta : ", respuesta)
+        chatbox.send_keys(respuesta, Keys.ENTER)
+        sleep(2)
+        webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
 
 def procesar_mensaje(message: str):
     chatbox = driver.find_element(By.XPATH,'//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
     
-    response = preparar_respuesta(message)
-    print("RESPONSE:", response)
+    preparar_respuesta(message)
+    #print("RESPONSE:", response)
     
-    chatbox.send_keys(response, Keys.ENTER)
-    sleep(2)
-    webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+    #chatbox.send_keys(response, Keys.ENTER)
+    #sleep(2)
+    #webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
     
     
     

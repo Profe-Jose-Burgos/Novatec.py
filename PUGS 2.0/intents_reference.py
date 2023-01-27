@@ -21,7 +21,7 @@ def start_intents():
                                "saludos",
                                "como estas?"
                               ],
-                   "respuestas":["GUAU GUAU! me llamo PUGS! su sistema de ayuda para atencion en sus preguntas o dudas sobre el centro de    atencion para su(s) mascota(s). En que te puedo ayudar?"],
+                   "respuestas":[":-D GUAU GUAU!:-D me llamo PUGS! su sistema de ayuda para atencion en sus preguntas o dudas sobre el centro de    atencion para su(s) mascota(s). En que te puedo ayudar?"],
                    "contexto":[""]
                 },
                   
@@ -34,9 +34,10 @@ def start_intents():
                              "bye",
                              "nos vemos"
                              ],
-                 "respuestas":["Gracias por consultarme humano!! Hasta Pronto :)",
-                               "Hasta la proxima! Nos vemos!",
-                               "Adios, espero haberte ayudado humano :)"],
+                 "respuestas":["Gracias por consultarme humano!! Hasta Pronto :-D",
+                               ";-) Hasta la proxima! Nos vemos!",
+                               "Adios, espero haberte ayudado humano :-D"
+                               ],
                  "contexto":[""]
                 },
                   
@@ -54,10 +55,10 @@ def start_intents():
                                "brutal",
                                "muy amable"
                               ],
-                   "respuestas":["Espero haberte ayudado, eres un humano genial!!",
-                                "De nada, estoy para ayudarte!",
-                                "Ha sido todo un placer humano!",
-                                "Gracias a usted por elegirnos!"],
+                   "respuestas":["sticker_1",
+                                 "sticker_2",
+                                 "sticker_3",
+                                 "sticker_4"],
                    "contexto":[""]         
                   },
                   
@@ -81,7 +82,7 @@ def start_intents():
                                "ofrecen servicios de urgencia?",
                                "que hacen?"
                               ],
-                   "respuestas":["Ofrecemos los siguientes servicios:-Medicina Preventiva -Medicina General -Medicina Especializada\n -Cirugia General -Cirugias Especializadas -Acupuntura\n -Cardiogramas -Ultrasonidos -Electrocardiograma\n -Rayos X -Endoscopia -Laboratorios -Urgencia"],
+                   "respuestas":["foto_img/servicios.jpeg"],
                    "contexto":[""]         
                   },
                   
@@ -123,7 +124,7 @@ def start_intents():
                                "tienen instagram?",
                                "tienen algun numero de telefono?"
                               ],
-                   "respuestas":["Puedes contactarte directamente con nosotros al Whatsapp: +507 62840188 o a nuestro numero telefónico: 391-8357 / 391-8358\n Tambien nos puedes seguir en nuestro Instagram para no perderte de ninguna promocion!!: https://www.instagram.com/clinicavetpatasyhuellas/?hl=es"],
+                   "respuestas":["Puedes contactarte directamente con nosotros al Whatsapp: +507 62840188 o a nuestro numero telefónico: 391-8357 / 391-8358\n Tambien nos puedes seguir en nuestro Instagram para no perderte de ninguna promocion ;-) !!: https://www.instagram.com/clinicavetpatasyhuellas/?hl=es"],
                    "contexto":[""]         
                   },
 
@@ -135,7 +136,7 @@ def start_intents():
                                "como puedo agendar una cita?",
                                "tramite de cita"
                               ],
-                   "respuestas":["Para agendar su cita, ingrese el codigo del horario que desea seguido de su nombre y numero de celular(H2 Jonatan 6523-8989)\n Tenemos los siguientes horarios disponibles para agendar su cita:\n -H1. Lunes 8:00 a.m\n -H2. Marte 10:00 a.m\n -H3. Miercoles 8:00 a.m\n -H4. Jueves 10:00 a.m\n -H5. Viernes 8:00 a.m"],          
+                   "respuestas":["Para agendar su cita, ingrese el codigo del horario que desea seguido de su nombre y numero de celular. Ej.(H2 Jonatan 6523-8989)\n Tenemos los siguientes horarios disponibles para agendar su cita:\n -H1. Lunes 8:00 a.m\n -H2. Marte 10:00 a.m\n -H3. Miercoles 8:00 a.m\n -H4. Jueves 10:00 a.m\n -H5. Viernes 8:00 a.m"],          
                    "contexto":[""]
                 },
                   
@@ -152,9 +153,9 @@ def start_intents():
                   
                   {"etiqueta":"sinrespuesta",
                    "patrones":[""],
-                   "respuestas":["no se ha detectado respuesta\n Puedes hacerme preguntas como:-Horario -Servicios -Ubicacion -Contacto",
-                                 "ouh, no comprendo lo que me quieres decir humano :(\n Puedes hacerme preguntas como: -Horario -Servicios -Ubicacion -Contacto",
-                                 "lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos\n Puedes hacerme preguntas como:-Horario -Servicios -Ubicacion -Contacto"],
+                   "respuestas":["No se ha detectado respuesta:-(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
+                                 "Ouh:-(, no comprendo lo que me quieres decir humano :(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas",
+                                 "Lo siento, podrias decirlo de otro manera?, a veces me cuesta entender a los humanos :-(\n Puedes preguntarme sobre:-Horarios -Servicios -Ubicacion -Contacto -Citas"],
                    "contexto":[""]
                   }
               ]
